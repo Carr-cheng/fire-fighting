@@ -1,0 +1,18 @@
+# pip install -r requirements.txt  -i https://pypi.tuna.tsinghua.edu.cn/simple
+pytest
+coverage
+fastapi[all]
+uvicorn
+logbook  #日志
+pymysql
+peewee
+pathlib
+jieba
+nltk
+scrapy
+pandas
+threadpool
+requests
+snownlp
+
+
