@@ -1,6 +1,24 @@
-# fire-fighting
-fire-fighting-gnu
-# 后端
-后端代码在master分支下
-# 前端
-前端代码在fronted分支下
+# new-media-stat
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
