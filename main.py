@@ -28,10 +28,11 @@ def create_app():
     app = FastAPI(title='贵师大大数据B站舆情分析', description='消防调度')
 
     origins = [
-        "http://172.22.78.101:3333/",
+        "http://172.22.78.101:3333",
         "http://localhost:3333",
         "http://127.0.0.1:8000/",
         "http://127.0.0.1:8000",
+
     ]
     app.add_middleware(AuthMiddleware)  # 这个一定要放到CORSMiddleware前面
     app.add_middleware(
@@ -43,8 +44,11 @@ def create_app():
     )
 
     api_version = '/api/v1'
-    from api.search.t_fire import router as search_live
-    app.include_router(search_live, prefix=api_version+"/search/fire", tags=['事故信息'])
+    from api.login.login import router as login
+    app.include_router(login, prefix=api_version, tags="登录注册")
+
+    from api.search.t_fire import router as search_fire
+    app.include_router(search_fire, prefix=api_version+"/search/fire", tags=['事故信息'])
 
     from api.search.station import router as station_info
     app.include_router(station_info, prefix=api_version + "/search/station", tags=['消防站信息'])

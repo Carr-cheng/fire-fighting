@@ -2,10 +2,10 @@ from util.logger import logger
 
 
 def ok(data={}):
-    return {'status':200, 'msg':'', 'data':data}
+    return {'status':200, 'msg':'', 'data':data,'code':200}
 
 def fail(msg='', data={}):
-    return {'status': 400, 'msg': msg, 'data': data}
+    return {'status': 400, 'msg': msg, 'data': data,'code':400}
 
 from peewee import *
 from const import *
