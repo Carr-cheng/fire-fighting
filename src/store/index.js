@@ -1,9 +1,10 @@
 import { createStore  } from "vuex";
 
+import login from "./login"
 import layout from "./layout";
 import search_fire from "./search_fire";
-import rank_live from "./rank_live";
-import rank_gift from "./rank_gift";
+import dispatch_mapPath from "./dispatch_mapPath";
+import dispatch_car from "./dispatch_car";
 import search_station from "./search_station"
 
 export default  createStore ({
@@ -13,9 +14,9 @@ export default  createStore ({
   modules: {
     layout: layout,
     search_fire: search_fire,
-    rank_live: rank_live,
-    rank_gift: rank_gift,
+    dispatch_mapPath: dispatch_mapPath,
+    dispatch_car: dispatch_car,
     search_station: search_station,
-
+    login : login,
   },
 });

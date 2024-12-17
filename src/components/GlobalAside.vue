@@ -49,27 +49,27 @@ export default {
       asideMenu: [
         { path: "", label: "工作台", icon: "el-icon-s-home" },
         {
-          path: "",
+          path: "/",
           label: "火灾",
           icon: "el-icon-setting",
           children: [
             {
-              path: "/search/fire",
+              path: "/Layout/search/fire",
               label: "火灾情况",
               icon: "el-icon-setting",
             },
             {
-              path: "/rank/live",
+              path: "/Layout/dispatch/mapPath",
               label: "路径规划",
               icon: "el-icon-setting",
             },
             {
-              path: "/rank/gift",
+              path: "/Layout/dispatch/car",
               label: "资源调度",
               icon: "el-icon-setting",
             },
             {
-              path: "/search/station",
+              path: "/Layout/search/station",
               label: "消防站信息",
               icon: "el-icon-setting",
             }

@@ -3,20 +3,27 @@ import {createRouter, createWebHistory} from 'vue-router'
 import Layout from "../views/Layout.vue";
 
 import search_fire from "./search_fire";
-import rank_live from "./rank_live";
-import rank_gift from "./rank_gift";
+import rank_live from "./dispatch_mapPath";
+import rank_gift from "./dispatch_car";
 import search_station from "./search_station"
+import Login from '../components/LoginForm.vue'; // 引入 Login 组件
+import Register from '../components/RegisterForm.vue';
 
 
-// //获取原型对象上的push函数
-// const originalPush = VueRouter.prototype.push;
-// //修改原型对象中的push方法
-// VueRouter.prototype.push = function push(location) {
-//   return originalPush.call(this, location).catch((err) => err);
-// };
 const routes = [
+
   {
-    path: "/",
+    path: '/',
+    name: 'Login',
+    component: Login,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register, // 替换为你的注册页面组件
+  },
+  {
+    path: "/layout",
     name: "Layout",
     component: Layout,
     children: [
@@ -25,6 +32,7 @@ const routes = [
       ...rank_gift,
       ...search_station,
     ],
+    meta: { requiresAuth: true }, // 添加一个标记，表示需要登录}
   },
 ];
 
@@ -33,5 +41,22 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  const isLoggedIn = localStorage.getItem("token"); // 检查登录状态，假设通过 token 判断
+  console.log(isLoggedIn)
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    // 如果目标路由需要登录
+    if (!isLoggedIn) {
+      // 未登录，跳转到登录页
+      next({ path: "/", query: { redirect: to.fullPath } });
+    } else {
+      // 已登录，允许访问
+      next();
+    }
+  } else {
+    // 不需要登录的页面，直接放行
+    next();
+  }
+});
 export default router
 
