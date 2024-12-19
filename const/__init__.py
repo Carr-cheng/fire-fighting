@@ -12,6 +12,7 @@ mysql_pwd = '123456'         # 统一的密码
 tbl_t_user = 'users'
 tbl__t_fire = 't_fire'
 tbl__t_stationInfo = 'fire_station_info'
-
-
+tbl_fire_decisioninfo = 'fire_decisioninfo'
+tbl_fire_levelinfo = 'fire_levelinfo'
+tbl_fire_placeinfo = 'fire_placeinfo'
 tbl__tag_video = 'tag_video_'

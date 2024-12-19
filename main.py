@@ -25,7 +25,7 @@ class AuthMiddleware:
 
 def create_app():
 
-    app = FastAPI(title='贵师大大数据B站舆情分析', description='消防调度')
+    app = FastAPI(title='贵师大大数据消防调度系统', description='消防调度')
 
     origins = [
         "http://172.22.78.101:3333",
@@ -45,7 +45,13 @@ def create_app():
 
     api_version = '/api/v1'
     from api.login.login import router as login
-    app.include_router(login, prefix=api_version, tags="登录注册")
+    app.include_router(login, prefix=api_version, tags=["登录注册"])
+
+    from api.layout.layout import router as layout
+    app.include_router(layout, prefix=api_version, tags=["工作站信息"])
+
+    from api.diaodu.diaodu import router as diaodu
+    app.include_router(diaodu, prefix=api_version, tags=["调度信息"])
 
     from api.search.t_fire import router as search_fire
     app.include_router(search_fire, prefix=api_version+"/search/fire", tags=['事故信息'])
