@@ -6,7 +6,6 @@ import search_fire from "./search_fire";
 import dispatch_mapPath from "./dispatch_mapPath";
 import dispatch_car from "./dispatch_car";
 import search_station from "./search_station"
-
 export default  createStore ({
   state: {},
   mutations: {},
@@ -17,6 +16,6 @@ export default  createStore ({
     dispatch_mapPath: dispatch_mapPath,
     dispatch_car: dispatch_car,
     search_station: search_station,
-    login : login,
+    login: login,
   },
 });

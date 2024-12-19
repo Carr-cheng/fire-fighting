@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       asideMenu: [
-        { path: "", label: "工作台", icon: "el-icon-s-home" },
+        { path: "/Layout", label: "工作台", icon: "el-icon-s-home" },
         {
           path: "/",
           label: "火灾",

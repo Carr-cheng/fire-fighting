@@ -3,8 +3,8 @@ import {createRouter, createWebHistory} from 'vue-router'
 import Layout from "../views/Layout.vue";
 
 import search_fire from "./search_fire";
-import rank_live from "./dispatch_mapPath";
-import rank_gift from "./dispatch_car";
+import dispatch_mapPath from "./dispatch_mapPath";
+import dispatch_car from "./dispatch_car";
 import search_station from "./search_station"
 import Login from '../components/LoginForm.vue'; // 引入 Login 组件
 import Register from '../components/RegisterForm.vue';
@@ -28,8 +28,8 @@ const routes = [
     component: Layout,
     children: [
       ...search_fire,
-      ...rank_live,
-      ...rank_gift,
+      ...dispatch_mapPath,
+      ...dispatch_car,
       ...search_station,
     ],
     meta: { requiresAuth: true }, // 添加一个标记，表示需要登录}

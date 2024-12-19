@@ -7,6 +7,7 @@
       <el-main class="mainContainer">
         <el-scrollbar style="height: 100%; background-color: #fff">
           <router-view />
+          <EChartsComponent v-if="shouldShowChart"/>
         </el-scrollbar>
       </el-main>
     </div>
@@ -17,6 +18,7 @@
 import bus from "@/store/bus.js";
 import GlobalAside from "../components/GlobalAside.vue";
 import GlobalHeader from "../components/GlobalHeader.vue";
+import EChartsComponent from "@/components/EChartsComponent.vue";
 
 export default {
   name: "",
@@ -24,9 +26,15 @@ export default {
     return {};
   },
 
-  components: { GlobalAside, GlobalHeader },
+  components: { EChartsComponent, GlobalAside, GlobalHeader },
 
-  computed: {},
+  computed: {
+    // 通过路由路径判断是否显示 ECharts 图表
+    shouldShowChart() {
+      // 如果是某些页面路径，则显示图表
+      return this.$route.path === '/Layout';  // 请替换为你希望显示图表的页面路径
+    },
+  },
 
   mounted: function () {},
 
@@ -59,6 +67,9 @@ export default {
     .mainContainer {
       background-color: RGB(246, 247, 251);
       height: calc(100vh - 64px);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
     }
   }
 }
